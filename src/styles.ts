@@ -19,10 +19,10 @@ export const GlobalCss = createGlobalStyle`
     background-color: ${colors.lightwhite};
     color: ${colors.lightred};
   }
-`
 
-export const Container = styled.div`
-  max-width: 1024px;
-  width: 100%;
-  margin: 0 auto;
+  .container {
+    max-width: 1024px;
+    width: 100%;
+    margin: 0 auto;
+}
 `
