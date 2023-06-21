@@ -5,11 +5,15 @@ import { TagContainer } from '../Tag/styles'
 export const Card = styled.div`
   background-color: ${colors.white};
   padding: 0;
-  border: 1px solid ${colors.lightred};
+  position: relative;
 
   ${TagContainer} {
     margin-right: 8px;
   }
+`
+
+export const ContentContainer = styled.div`
+  border: 1px solid ${colors.lightred};
 `
 
 export const Content = styled.div`
@@ -19,6 +23,7 @@ export const Content = styled.div`
 
 export const Image = styled.img`
   width: 100%;
+  display: block;
 `
 
 export const Title = styled.h3`
@@ -56,4 +61,10 @@ export const TitleContainer = styled.div`
   align-items: center;
   margin-top: 8px;
   margin-bottom: 16px;
+`
+
+export const Infos = styled.div`
+  position: absolute;
+  top: 16px;
+  right: 16px;
 `

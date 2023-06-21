@@ -7,35 +7,50 @@ import {
   GradeContainer,
   Star,
   TitleContainer,
-  Grade
+  Grade,
+  Infos,
+  ContentContainer
 } from './styles'
 
 import star from '../../assets/images/star.svg'
 import Tag from '../Tag'
+import { Link } from 'react-router-dom'
+import { TagContainer } from '../Tag/styles'
 
-const Restaurant = () => (
+type Props = {
+  title: string
+  grade: number
+  description: string
+  infos: string[]
+  image: string
+}
+
+const Restaurante = ({ title, grade, description, infos, image }: Props) => (
   <>
     <Card>
-      <Image src="//placehold.it/472x217" />
-      <Content>
-        {/* <Tag>Tipo</Tag> */}
-        <TitleContainer>
-          <Title>Hioki Sushi </Title>
-          <GradeContainer>
-            <Grade>4.6</Grade>
-            <Star src={star} />
-          </GradeContainer>
-        </TitleContainer>
-        <Description>
-          Peça já o melhor da culinária japonesa no conforto da sua casa! Sushis
-          frescos, sashimis deliciosos e pratos quentes irresistíveis. Entrega
-          rápida, embalagens cuidadosas e qualidade garantida.Experimente o
-          Japão sem sair do lar com nosso delivery!
-        </Description>
-        <Tag marginBottom="8px">Saiba mais</Tag>
-      </Content>
+      <Image src={image} alt={title} />
+      <Infos>
+        {infos.map((info) => (
+          <Tag key={info}>{info}</Tag>
+        ))}
+      </Infos>
+      <ContentContainer>
+        <Content>
+          <TitleContainer>
+            <Title>{title}</Title>
+            <GradeContainer>
+              <Grade>{grade}</Grade>
+              <Star src={star} />
+            </GradeContainer>
+          </TitleContainer>
+          <Description>{description}</Description>
+          <TagContainer marginBottom="8px">
+            <Link to="/profiles">Saiba Mais</Link>
+          </TagContainer>
+        </Content>
+      </ContentContainer>
     </Card>
   </>
 )
 
-export default Restaurant
+export default Restaurante

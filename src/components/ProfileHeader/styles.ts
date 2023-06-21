@@ -25,6 +25,7 @@ export const HeaderContainer = styled.div`
 export const LinkHome = styled.a`
   text-decoration: none;
   color: ${colors.lightred};
+  border: none;
 `
 
 export const Logo = styled.img`
@@ -39,4 +40,5 @@ export const LinkCart = styled.a`
   font-size: 18px;
   line-height: 21px;
   color: ${colors.lightred};
+  text-decoration: none;
 `

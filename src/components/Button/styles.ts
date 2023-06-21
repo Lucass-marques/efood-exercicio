@@ -18,6 +18,7 @@ export const ButtonAddCart = styled(ButtonContainer)`
   background-color: ${colors.lightgray};
   color: ${colors.lightred};
   padding: 4px 84px;
+  border: none;
 `
 
 export const ButtonLink = styled(Link)`

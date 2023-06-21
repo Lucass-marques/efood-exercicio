@@ -2,12 +2,23 @@ import { styled } from 'styled-components'
 import { colors } from '../../styles'
 import { TagContainer } from '../Tag/styles'
 
+export const ExternalContainer = styled.div``
+
 export const Image = styled.div`
   background-repeat: no-repeat;
   background-size: cover;
   width: 100%;
   height: 350px;
   display: block;
+
+  .overlay {
+    position: absolute;
+    top: 20;
+    left: 0;
+    width: 100%;
+    height: 39.1%;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
 
   .container {
     position: relative;
