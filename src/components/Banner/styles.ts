@@ -16,7 +16,7 @@ export const Image = styled.div`
     top: 20;
     left: 0;
     width: 100%;
-    height: 39.1%;
+    height: 37.4%;
     background-color: rgba(0, 0, 0, 0.5);
   }
 

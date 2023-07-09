@@ -1,4 +1,4 @@
-import Food from '../../models/Foods'
+import { Food } from '../../pages/Home'
 import FoodElement from '../FoodElement'
 import { Foods } from './styles'
 
@@ -12,9 +12,11 @@ const FoodsList = ({ foods }: Props) => (
       {foods.map((food) => (
         <FoodElement
           key={food.id}
-          title={food.title}
+          title={food.name}
           description={food.description}
-          image={food.image}
+          amount={food.amount}
+          cover={food.cover}
+          price={food.price}
         />
       ))}
     </Foods>

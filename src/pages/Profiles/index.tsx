@@ -1,51 +1,63 @@
 import marguerita from '../../assets/images/marguerita.png'
 import FoodsList from '../../components/FoodsList'
-import Food from '../../models/Foods'
 import ProfileHeader from '../../components/ProfileHeader'
 import Banner from '../../components/Banner'
+import { Food } from '../Home'
 
 const foods: Food[] = [
   {
     id: 1,
-    title: 'Pizza Marguerita',
+    name: 'Pizza Marguerita',
     description:
       'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
-    image: marguerita
+    cover: marguerita,
+    amount: 'Serve: de 2 a 3 pessoas',
+    price: 69.9
   },
   {
     id: 2,
-    title: 'Pizza Marguerita',
+    name: 'Pizza Marguerita',
     description:
       'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
-    image: marguerita
+    cover: marguerita,
+    amount: 'Serve: de 2 a 3 pessoas',
+    price: 69.9
   },
   {
     id: 3,
-    title: 'Pizza Marguerita',
+    name: 'Pizza Marguerita',
     description:
       'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
-    image: marguerita
+    cover: marguerita,
+    amount: 'Serve: de 2 a 3 pessoas',
+    price: 69.9
   },
   {
     id: 4,
-    title: 'Pizza Marguerita',
+    name: 'Pizza Marguerita',
     description:
       'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
-    image: marguerita
+    cover: marguerita,
+    amount: 'Serve: de 2 a 3 pessoas',
+    price: 69.9
   },
   {
     id: 5,
-    title: 'Pizza Marguerita',
+    name: 'Pizza Marguerita',
     description:
       'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
-    image: marguerita
+    cover: marguerita,
+    amount: 'Serve: de 2 a 3 pessoas',
+    price: 69.9
   },
   {
     id: 6,
-    title: 'Pizza Marguerita',
+    name: 'Pizza Marguerita',
     description:
       'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
-    image: marguerita
+    cover: marguerita,
+    amount: 'Serve: de 2 a 3 pessoas',
+    price: 69.9
   }
 ]
 
