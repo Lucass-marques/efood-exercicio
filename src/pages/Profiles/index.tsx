@@ -1,72 +1,40 @@
-import marguerita from '../../assets/images/marguerita.png'
+import { useState, useEffect } from 'react'
 import FoodsList from '../../components/FoodsList'
 import ProfileHeader from '../../components/ProfileHeader'
 import Banner from '../../components/Banner'
-import { Food } from '../Home'
 
-const foods: Food[] = [
-  {
-    id: 1,
-    name: 'Pizza Marguerita',
-    description:
-      'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
-    cover: marguerita,
-    amount: 'Serve: de 2 a 3 pessoas',
-    price: 69.9
-  },
-  {
-    id: 2,
-    name: 'Pizza Marguerita',
-    description:
-      'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
-    cover: marguerita,
-    amount: 'Serve: de 2 a 3 pessoas',
-    price: 69.9
-  },
-  {
-    id: 3,
-    name: 'Pizza Marguerita',
-    description:
-      'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
-    cover: marguerita,
-    amount: 'Serve: de 2 a 3 pessoas',
-    price: 69.9
-  },
-  {
-    id: 4,
-    name: 'Pizza Marguerita',
-    description:
-      'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
-    cover: marguerita,
-    amount: 'Serve: de 2 a 3 pessoas',
-    price: 69.9
-  },
-  {
-    id: 5,
-    name: 'Pizza Marguerita',
-    description:
-      'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
-    cover: marguerita,
-    amount: 'Serve: de 2 a 3 pessoas',
-    price: 69.9
-  },
-  {
-    id: 6,
-    name: 'Pizza Marguerita',
-    description:
-      'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
-    cover: marguerita,
-    amount: 'Serve: de 2 a 3 pessoas',
-    price: 69.9
-  }
-]
+// type Restaurant = {
+//   id: number
+//   titulo: string
+//   destacado: boolean
+//   tipo: string
+//   avaliacao: number
+//   descricao: string
+//   capa: string
+//   cardapio: Food[]
+// }
 
-const Profiles = () => (
-  <>
-    <ProfileHeader />
-    <Banner />
-    <FoodsList foods={foods} />
-  </>
-)
+const Profiles = () => {
+  const [foods, setFoods] = useState([])
+
+  useEffect(() => {
+    fetch('https://fake-api-tau.vercel.app/api/efood/restaurantes')
+      .then((res) => res.json())
+      .then((data) => {
+        setFoods(data[0].cardapio)
+      })
+      .catch((error) => {
+        console.error('Error fetching restaurants:', error)
+      })
+  }, [])
+
+  return (
+    <>
+      <ProfileHeader />
+      <Banner />
+      <FoodsList foods={foods} />
+    </>
+  )
+}
 
 export default Profiles

@@ -11,12 +11,12 @@ const FoodsList = ({ foods }: Props) => (
     <Foods>
       {foods.map((food) => (
         <FoodElement
-          key={food.id}
-          title={food.name}
-          description={food.description}
-          amount={food.amount}
-          cover={food.cover}
-          price={food.price}
+          key={food.cardapio.id}
+          nome={food.cardapio.nome}
+          descricao={food.cardapio.descricao}
+          porcao={food.cardapio.porcao}
+          foto={food.cardapio.foto}
+          preco={food.cardapio.preco}
         />
       ))}
     </Foods>

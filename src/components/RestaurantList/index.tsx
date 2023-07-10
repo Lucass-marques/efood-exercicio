@@ -8,26 +8,18 @@ export type Props = {
 }
 
 const RestaurantList = ({ restaurants }: Props) => {
-  const getRestaurantTags = (restaurant: Restaurant) => {
-    const tags = []
-
-    if (restaurant.tagged) {
-      tags.push(...restaurant.infos)
-    }
-
-    return tags
-  }
   return (
     <div className="container">
       <List>
         {restaurants.map((restaurant) => (
           <Restaurante
             key={restaurant.id}
-            title={restaurant.title}
-            description={restaurant.description}
-            image={restaurant.cover}
-            infos={getRestaurantTags(restaurant.infos)}
-            grade={restaurant.grade}
+            titulo={restaurant.titulo}
+            descricao={restaurant.descricao}
+            capa={restaurant.capa}
+            tipo={restaurant.tipo}
+            avaliacao={restaurant.avaliacao}
+            destacado={restaurant.destacado}
           />
         ))}
       </List>

@@ -4,22 +4,22 @@ import { Card, Description, Image, Title } from './styles'
 import Modal from '../Modal'
 
 type Props = {
-  title: string
-  description: string
-  amount: string
-  cover: string
-  price: number
+  nome: string
+  descricao: string
+  porcao: string
+  preco: number
+  foto: string
 }
 
-const FoodElement = ({ title, cover, description, amount, price }: Props) => {
+const FoodElement = ({ nome, descricao, porcao, preco, foto }: Props) => {
   const [modalOpen, setModalOpen] = useState(false)
 
-  const formatPrices = (price: number) => {
+  const formatPrices = (preco: number) => {
     return parseFloat(
       new Intl.NumberFormat('pt-BR', {
         style: 'currency',
         currency: 'BRL'
-      }).format(price)
+      }).format(preco)
     )
   }
 
@@ -33,17 +33,17 @@ const FoodElement = ({ title, cover, description, amount, price }: Props) => {
 
   return (
     <Card>
-      <Image src={cover} alt={title} />
-      <Title>{title}</Title>
-      <Description>{description}</Description>
+      <Image src={foto} alt={nome} />
+      <Title>{nome}</Title>
+      <Description>{descricao}</Description>
       <ButtonAddCart onClick={openModal}>Adicionar ao carrinho</ButtonAddCart>
       {modalOpen && (
         <Modal
-          title={title}
-          description={description}
-          amount={amount}
-          image={cover}
-          price={formatPrices(price)}
+          nome={nome}
+          descricao={descricao}
+          porcao={porcao}
+          foto={foto}
+          preco={formatPrices(preco)}
           closeModal={closeModal}
         />
       )}

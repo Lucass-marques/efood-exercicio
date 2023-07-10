@@ -7,7 +7,7 @@ export type Props = {
 }
 
 const Tag = ({ children, size = 'small', marginBottom }: Props) => (
-  <TagContainer size={size} style={{ marginBottom }}>
+  <TagContainer size={size} marginBottom={marginBottom}>
     {children}
   </TagContainer>
 )

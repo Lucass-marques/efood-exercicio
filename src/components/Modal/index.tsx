@@ -13,33 +13,26 @@ import {
 } from './styles'
 
 type Props = {
-  title: string
-  image: string
-  description: string
-  price: number
-  amount: string
+  nome: string
+  foto: string
+  descricao: string
+  preco: number
+  porcao: string
   closeModal: () => void
 }
 
-const Modal = ({
-  title,
-  description,
-  image,
-  price,
-  amount,
-  closeModal
-}: Props) => (
+const Modal = ({ nome, descricao, foto, preco, porcao, closeModal }: Props) => (
   <>
     <Overlay onClick={closeModal} />
     <ModalContainer>
       <ImageContainer>
-        <ImageModal src={image} />
+        <ImageModal src={foto} />
       </ImageContainer>
       <ContentContainer>
-        <TitleModal>{title}</TitleModal>
-        <DescriptionModal>{description}</DescriptionModal>
-        <AmountPeople>{amount}</AmountPeople>
-        <AddCartButton>Adicionar ao carrinho - R$ {price}</AddCartButton>
+        <TitleModal>{nome}</TitleModal>
+        <DescriptionModal>{descricao}</DescriptionModal>
+        <AmountPeople>{porcao}</AmountPeople>
+        <AddCartButton>Adicionar ao carrinho - R$ {preco}</AddCartButton>
       </ContentContainer>
       <CloseIcon src={fechar} onClick={closeModal} />
     </ModalContainer>

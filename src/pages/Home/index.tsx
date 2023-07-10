@@ -4,22 +4,23 @@ import { useEffect, useState } from 'react'
 
 export type Restaurant = {
   id: number
-  title: string
-  tagged: boolean
-  infos: string[]
-  type: string
-  grade: number
-  description: string
-  cover: string
+  titulo: string
+  destacado: boolean
+  tipo: string[]
+  avaliacao: number
+  descricao: string
+  capa: string
 }
 
 export type Food = {
-  cover: string
-  price: number
-  id: number
-  name: string
-  description: string
-  amount: string
+  cardapio: {
+    foto: string
+    preco: number
+    id: number
+    nome: string
+    descricao: string
+    porcao: string
+  }
 }
 
 const Home = () => {
@@ -28,7 +29,12 @@ const Home = () => {
   useEffect(() => {
     fetch('https://fake-api-tau.vercel.app/api/efood/restaurantes')
       .then((res) => res.json())
-      .then((res) => setRestaurants(res))
+      .then((data) => {
+        setRestaurants(data)
+      })
+      .catch((error) => {
+        console.error('Error fetching restaurants:', error)
+      })
   }, [])
 
   return (
