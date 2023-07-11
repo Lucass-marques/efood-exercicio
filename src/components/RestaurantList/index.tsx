@@ -20,6 +20,7 @@ const RestaurantList = ({ restaurants }: Props) => {
             tipo={restaurant.tipo}
             avaliacao={restaurant.avaliacao}
             destacado={restaurant.destacado}
+            id={restaurant.id}
           />
         ))}
       </List>

@@ -7,6 +7,8 @@ export const Card = styled.div`
 `
 
 export const Image = styled.img`
+  max-height: 167px;
+  height: 100%;
   width: 100%;
   display: block;
 `

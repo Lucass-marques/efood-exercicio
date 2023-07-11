@@ -22,8 +22,11 @@ export const Content = styled.div`
 `
 
 export const Image = styled.img`
+  max-height: 217px;
+  height: 100%;
   width: 100%;
   display: block;
+  object-fit: cover;
 `
 
 export const Title = styled.h3`

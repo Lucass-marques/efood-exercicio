@@ -23,9 +23,10 @@ type Props = {
   titulo: string
   avaliacao: number
   descricao: string
-  tipo: string[]
+  tipo: string
   capa: string
   destacado?: boolean
+  id: number
 }
 
 const Restaurante = ({
@@ -34,7 +35,8 @@ const Restaurante = ({
   descricao,
   tipo,
   capa,
-  destacado
+  destacado,
+  id
 }: Props) => {
   const [restaurantTags, setRestaurantTags] = useState<string[]>([])
 
@@ -42,12 +44,12 @@ const Restaurante = ({
     const getRestaurantTags = () => {
       const tags: string[] = []
 
-      // if (tagged && Array.isArray(infos)) {
-      //   tags.push(...infos)
-      // }
-
       if (destacado) {
         tags.push('Destaque da semana')
+      }
+
+      if (tipo) {
+        tags.push(tipo)
       }
 
       return tags
@@ -75,7 +77,7 @@ const Restaurante = ({
             </TitleContainer>
             <Description>{descricao}</Description>
             <TagContainer marginBottom="8px">
-              <Link to="/profiles">Saiba Mais</Link>
+              <Link to={`/profiles/${id}`}>Saiba Mais</Link>
             </TagContainer>
           </Content>
         </ContentContainer>

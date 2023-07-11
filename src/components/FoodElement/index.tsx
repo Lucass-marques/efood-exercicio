@@ -7,7 +7,7 @@ type Props = {
   nome: string
   descricao: string
   porcao: string
-  preco: number
+  preco: string
   foto: string
 }
 
@@ -15,12 +15,10 @@ const FoodElement = ({ nome, descricao, porcao, preco, foto }: Props) => {
   const [modalOpen, setModalOpen] = useState(false)
 
   const formatPrices = (preco: number) => {
-    return parseFloat(
-      new Intl.NumberFormat('pt-BR', {
-        style: 'currency',
-        currency: 'BRL'
-      }).format(preco)
-    )
+    return new Intl.NumberFormat('pt-BR', {
+      style: 'currency',
+      currency: 'BRL'
+    }).format(preco)
   }
 
   const openModal = () => {
@@ -30,6 +28,8 @@ const FoodElement = ({ nome, descricao, porcao, preco, foto }: Props) => {
   const closeModal = () => {
     setModalOpen(false)
   }
+
+  const precoNumber = parseFloat(preco)
 
   return (
     <Card>
@@ -43,7 +43,7 @@ const FoodElement = ({ nome, descricao, porcao, preco, foto }: Props) => {
           descricao={descricao}
           porcao={porcao}
           foto={foto}
-          preco={formatPrices(preco)}
+          preco={formatPrices(precoNumber)}
           closeModal={closeModal}
         />
       )}

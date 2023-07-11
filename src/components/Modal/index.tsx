@@ -16,7 +16,7 @@ type Props = {
   nome: string
   foto: string
   descricao: string
-  preco: number
+  preco: string
   porcao: string
   closeModal: () => void
 }
@@ -31,8 +31,8 @@ const Modal = ({ nome, descricao, foto, preco, porcao, closeModal }: Props) => (
       <ContentContainer>
         <TitleModal>{nome}</TitleModal>
         <DescriptionModal>{descricao}</DescriptionModal>
-        <AmountPeople>{porcao}</AmountPeople>
-        <AddCartButton>Adicionar ao carrinho - R$ {preco}</AddCartButton>
+        <AmountPeople>Serve: {porcao}</AmountPeople>
+        <AddCartButton>Adicionar ao carrinho - {preco}</AddCartButton>
       </ContentContainer>
       <CloseIcon src={fechar} onClick={closeModal} />
     </ModalContainer>

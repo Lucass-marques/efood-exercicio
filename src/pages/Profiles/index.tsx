@@ -2,31 +2,36 @@ import { useState, useEffect } from 'react'
 import FoodsList from '../../components/FoodsList'
 import ProfileHeader from '../../components/ProfileHeader'
 import Banner from '../../components/Banner'
-
-// type Restaurant = {
-//   id: number
-//   titulo: string
-//   destacado: boolean
-//   tipo: string
-//   avaliacao: number
-//   descricao: string
-//   capa: string
-//   cardapio: Food[]
-// }
+import { Food, Restaurant } from '../Home'
+import { useParams } from 'react-router-dom'
 
 const Profiles = () => {
-  const [foods, setFoods] = useState([])
+  const [foods, setFoods] = useState<Food[]>([])
+  const [restaurant, setRestaurant] = useState<Restaurant | null>(null)
+  const { id } = useParams()
 
   useEffect(() => {
     fetch('https://fake-api-tau.vercel.app/api/efood/restaurantes')
       .then((res) => res.json())
       .then((data) => {
-        setFoods(data[0].cardapio)
+        if (Array.isArray(data)) {
+          const restaurant = data.find((r: Restaurant) => r.id === Number(id))
+          if (restaurant) {
+            setFoods(restaurant.cardapio)
+            setRestaurant(restaurant)
+          }
+        } else {
+          console.error('Invalid data format')
+        }
       })
       .catch((error) => {
         console.error('Error fetching restaurants:', error)
       })
-  }, [])
+  }, [id])
+
+  if (!restaurant) {
+    return <h3>Carregando ...</h3>
+  }
 
   return (
     <>
