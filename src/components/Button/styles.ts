@@ -19,6 +19,7 @@ export const ButtonAddCart = styled(ButtonContainer)`
   color: ${colors.lightred};
   padding: 4px 84px;
   border: none;
+  cursor: pointer;
 `
 
 export const ButtonLink = styled(Link)`

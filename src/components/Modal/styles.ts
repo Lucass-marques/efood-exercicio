@@ -72,6 +72,7 @@ export const AddCartButton = styled.button`
   font-weight: 700;
   font-size: 14px;
   margin-top: 14px;
+  cursor: pointer;
 `
 
 export const AmountPeople = styled.p`
