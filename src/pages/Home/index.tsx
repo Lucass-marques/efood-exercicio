@@ -2,6 +2,7 @@ import { useParams } from 'react-router-dom'
 import Header from '../../components/Header'
 import RestaurantList from '../../components/RestaurantList'
 import { useEffect, useState } from 'react'
+import { useGetRestaurantsListQuery } from '../../services/api'
 
 export type Restaurant = {
   id: number
@@ -17,26 +18,17 @@ export type Restaurant = {
 export type Food = {
   foto: string
   preco: string
-  id: number
   nome: string
+  key: number
   descricao: string
   porcao: string
 }
 const Home = () => {
-  const [restaurants, setRestaurants] = useState<Restaurant[]>([])
+  const { data: restaurants, isLoading } = useGetRestaurantsListQuery()
 
-  const { id } = useParams()
-
-  useEffect(() => {
-    fetch('https://fake-api-tau.vercel.app/api/efood/restaurantes')
-      .then((res) => res.json())
-      .then((res) => {
-        setRestaurants(res)
-      })
-      .catch((error) => {
-        console.error('Error fetching restaurants:', error)
-      })
-  }, [id])
+  if (!restaurants) {
+    return <h3>Carregando...</h3>
+  }
 
   return (
     <>

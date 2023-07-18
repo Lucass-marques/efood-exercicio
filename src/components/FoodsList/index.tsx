@@ -15,7 +15,7 @@ const FoodsList = ({ foods }: Props) => {
             if (food) {
               return (
                 <FoodElement
-                  key={food.id}
+                  key={food.key}
                   nome={food.nome}
                   descricao={food.descricao}
                   porcao={food.porcao}
