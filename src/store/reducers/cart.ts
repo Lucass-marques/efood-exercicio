@@ -16,13 +16,7 @@ const cartSlice = createSlice({
   initialState,
   reducers: {
     add: (state, action: PayloadAction<Food>) => {
-      const food = state.items.find((item) => item.key === action.payload.key)
-
-      if (!food) {
-        state.items.push(action.payload)
-      } else {
-        alert('O prato já está no carrinho')
-      }
+      state.items.push(action.payload)
     },
     remove: (state, action: PayloadAction<number>) => {
       state.items = state.items.filter((item) => item.key !== action.payload)
