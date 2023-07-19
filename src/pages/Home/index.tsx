@@ -1,7 +1,5 @@
-import { useParams } from 'react-router-dom'
 import Header from '../../components/Header'
 import RestaurantList from '../../components/RestaurantList'
-import { useEffect, useState } from 'react'
 import { useGetRestaurantsListQuery } from '../../services/api'
 
 export type Restaurant = {
@@ -17,14 +15,14 @@ export type Restaurant = {
 
 export type Food = {
   foto: string
-  preco: string
+  preco: number
   nome: string
   key: number
   descricao: string
   porcao: string
 }
 const Home = () => {
-  const { data: restaurants, isLoading } = useGetRestaurantsListQuery()
+  const { data: restaurants } = useGetRestaurantsListQuery()
 
   if (!restaurants) {
     return <h3>Carregando...</h3>

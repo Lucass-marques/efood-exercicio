@@ -1,19 +1,36 @@
+import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 
 import logo from '../../assets/images/logo.svg'
 
-import { HeaderContainer, Header, LinkHome, Logo, LinkCart } from './styles'
+import { HeaderContainer, Header, LinkHome, Logo, CartButton } from './styles'
 
-const ProfileHeader = () => (
-  <Header>
-    <HeaderContainer className="container">
-      <Link to="/">
-        <LinkHome>Restaurantes</LinkHome>
-      </Link>
-      <Logo src={logo} alt="logo eFood" />
-      <LinkCart href="#">0 produto(s) no carrinho</LinkCart>
-    </HeaderContainer>
-  </Header>
-)
+import { open } from '../../store/reducers/cart'
+import { RootReducer } from '../../store'
+
+const ProfileHeader = () => {
+  const dispatch = useDispatch()
+  const { items } = useSelector((state: RootReducer) => state.cart)
+
+  const openCart = () => {
+    dispatch(open())
+  }
+
+  return (
+    <Header>
+      <HeaderContainer className="container">
+        <Link to="/">
+          <LinkHome>Restaurantes</LinkHome>
+        </Link>
+        <Link to="/">
+          <Logo src={logo} alt="logo eFood" />
+        </Link>
+        <CartButton onClick={openCart}>
+          {items.length} produto(s) no carrinho
+        </CartButton>
+      </HeaderContainer>
+    </Header>
+  )
+}
 
 export default ProfileHeader

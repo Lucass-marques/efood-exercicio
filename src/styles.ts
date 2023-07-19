@@ -7,6 +7,11 @@ export const colors = {
   lightwhite: '#F5F5F5'
 }
 
+export const breakpoints = {
+  desktop: '1023px',
+  tablet: '767px'
+}
+
 export const GlobalCss = createGlobalStyle`
   * {
     margin: 0;
@@ -20,9 +25,17 @@ export const GlobalCss = createGlobalStyle`
     color: ${colors.lightred};
   }
 
+  li {
+    list-style-type: none;
+  }
+
   .container {
     max-width: 1024px;
     width: 100%;
     margin: 0 auto;
+
+    @media (max-width: ${breakpoints.desktop}) {
+      max-width: 80%;
+    }
 }
 `

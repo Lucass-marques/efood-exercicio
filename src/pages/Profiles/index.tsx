@@ -19,7 +19,7 @@ const Profiles = () => {
     <>
       <ProfileHeader />
       <Banner />
-      <FoodsList foods={foods} />
+      <FoodsList foods={foods.cardapio} />
     </>
   )
 }

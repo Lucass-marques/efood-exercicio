@@ -1,5 +1,5 @@
 import { styled } from 'styled-components'
-import { colors } from '../../styles'
+import { breakpoints, colors } from '../../styles'
 import { TagContainer } from '../Tag/styles'
 
 export const ExternalContainer = styled.div``
@@ -18,6 +18,10 @@ export const Image = styled.div`
     width: 100%;
     height: 37.4%;
     background-color: rgba(0, 0, 0, 0.5);
+
+    @media (max-width: ${breakpoints.desktop}) {
+      height: 41%;
+    }
   }
 
   .container {

@@ -1,6 +1,6 @@
 import { styled } from 'styled-components'
 
-import { colors } from '../../styles'
+import { breakpoints, colors } from '../../styles'
 import vector from '../../assets/images/Vector.svg'
 
 export const Header = styled.header`
@@ -20,6 +20,11 @@ export const HeaderContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  @media (max-width: ${breakpoints.tablet}) {
+    display: flex;
+    flex-direction: column;
+  }
 `
 
 export const LinkHome = styled.a`
@@ -31,9 +36,14 @@ export const LinkHome = styled.a`
 export const Logo = styled.img`
   width: 125px;
   height: 57px;
+
+  @media (max-width: ${breakpoints.tablet}) {
+    margin-top: 16px;
+    margin-bottom: 16px;
+  }
 `
 
-export const LinkCart = styled.a`
+export const CartButton = styled.a`
   cursor: pointer;
   border: none;
   font-weight: 900;
