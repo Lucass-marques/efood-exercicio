@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { colors } from '../../styles'
+import { breakpoints, colors } from '../../styles'
 
 import fechar from '../../assets/images/lixeira-de-reciclagem 1.png'
 
@@ -32,6 +32,10 @@ export const Sidebar = styled.aside`
   background-color: ${colors.lightred};
   z-index: 1;
   padding: 32px 8px 0 8px;
+
+  @media (max-width: ${breakpoints.tablet}) {
+    max-width: 95%;
+  }
 `
 
 export const ProductContainer = styled.div`

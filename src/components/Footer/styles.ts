@@ -1,5 +1,5 @@
 import { styled } from 'styled-components'
-import { colors } from '../../styles'
+import { breakpoints, colors } from '../../styles'
 
 export const Container = styled.footer`
   background-color: ${colors.lightgray};
@@ -30,4 +30,8 @@ export const FooterDescription = styled.p`
   font-size: 14px;
   line-height: 12px;
   text-align: center;
+
+  @media (max-width: ${breakpoints.tablet}) {
+    line-height: 21px;
+  }
 `

@@ -1,5 +1,5 @@
 import { styled } from 'styled-components'
-import { colors } from '../../styles'
+import { breakpoints, colors } from '../../styles'
 
 export const ModalContainer = styled.div`
   max-width: 1024px;
@@ -13,6 +13,10 @@ export const ModalContainer = styled.div`
   color: ${colors.white};
   display: flex;
   justify-content: space-between;
+
+  @media (max-width: ${breakpoints.tablet}) {
+    display: block;
+  }
 `
 
 export const ImageContainer = styled.div`
@@ -38,6 +42,10 @@ export const TitleModal = styled.h3`
   line-height: 21px;
   text-align: start;
   margin-bottom: 16px;
+
+  @media (max-width: ${breakpoints.tablet}) {
+    margin-top: 16px;
+  }
 `
 
 export const DescriptionModal = styled.p`
