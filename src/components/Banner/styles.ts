@@ -16,11 +16,11 @@ export const Image = styled.div`
     top: 20;
     left: 0;
     width: 100%;
-    height: 37.4%;
+    height: 350px;
     background-color: rgba(0, 0, 0, 0.5);
 
     @media (max-width: ${breakpoints.desktop}) {
-      height: 41%;
+      height: 350px;
     }
   }
 
@@ -40,4 +40,14 @@ export const Title = styled.h2`
   font-size: 32px;
   font-weight: 900;
   line-height: 37px;
+`
+
+export const Type = styled.h2`
+  font-size: 32px;
+  font-weight: 100;
+  color: ${colors.white};
+  line-height: 38px;
+  position: absolute;
+  top: 25px;
+  left: 0;
 `

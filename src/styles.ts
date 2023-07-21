@@ -4,7 +4,8 @@ export const colors = {
   lightred: '#E66767',
   lightgray: '#FFEBD9',
   white: '#FFF',
-  lightwhite: '#F5F5F5'
+  lightwhite: '#F5F5F5',
+  almostWhite: '#FFF8F2'
 }
 
 export const breakpoints = {
@@ -18,10 +19,11 @@ export const GlobalCss = createGlobalStyle`
     padding: 0;
     box-sizing: border-box;
     font-family: Roboto, sans-serif;
+    text-decoration: none;
   }
 
   body {
-    background-color: ${colors.lightwhite};
+    background-color: ${colors.almostWhite};
     color: ${colors.lightred};
   }
 

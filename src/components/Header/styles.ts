@@ -13,6 +13,7 @@ export const HeaderBar = styled.header`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  height: 384px;
 `
 
 export const Title = styled.h3`

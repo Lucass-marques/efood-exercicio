@@ -28,7 +28,7 @@ export const FooterIcons = styled.div`
 
 export const FooterDescription = styled.p`
   font-size: 14px;
-  line-height: 12px;
+  line-height: 20px;
   text-align: center;
 
   @media (max-width: ${breakpoints.tablet}) {
