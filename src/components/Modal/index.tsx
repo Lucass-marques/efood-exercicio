@@ -15,6 +15,7 @@ import {
 
 import { add, open } from '../../store/reducers/cart'
 import { Food } from '../../pages/Home'
+import parseToBrl from '../../utils'
 
 type Props = {
   nome: string
@@ -26,12 +27,6 @@ type Props = {
 }
 
 const Modal = ({ nome, descricao, foto, preco, porcao, closeModal }: Props) => {
-  const formatPrices = (preco: number) => {
-    return new Intl.NumberFormat('pt-BR', {
-      style: 'currency',
-      currency: 'BRL'
-    }).format(preco)
-  }
   const dispatch = useDispatch()
 
   const addToCart = () => {
@@ -58,7 +53,7 @@ const Modal = ({ nome, descricao, foto, preco, porcao, closeModal }: Props) => {
           <DescriptionModal>{descricao}</DescriptionModal>
           <AmountPeople>Serve: {porcao}</AmountPeople>
           <AddCartButton onClick={addToCart}>
-            Adicionar ao carrinho - {formatPrices(preco)}
+            Adicionar ao carrinho - {parseToBrl(preco)}
           </AddCartButton>
         </ContentContainer>
         <CloseIcon src={fechar} onClick={closeModal} />
