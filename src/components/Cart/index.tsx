@@ -1,5 +1,6 @@
 import { FormEvent, useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 import InputMask from 'react-input-mask'
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
@@ -39,6 +40,14 @@ const Cart = () => {
   const { isOpen, items } = useSelector((state: RootReducer) => state.cart)
 
   const dispatch = useDispatch()
+
+  const navigate = useNavigate()
+
+  const completedPurchase = () => {
+    navigate('/')
+    dispatch(close())
+    location.reload()
+  }
 
   const [purchase, { data, isSuccess, isLoading }] = usePurchaseMutation()
 
@@ -251,7 +260,7 @@ const Cart = () => {
               to="/"
               type="link"
               title="Clique aqui para voltar para a home"
-              onClick={() => closeCart}
+              onClick={completedPurchase}
             >
               Concluir
             </ButtonLinkCart>
